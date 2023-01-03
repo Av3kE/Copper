@@ -50,13 +50,17 @@ body .wrapper .welcome-part-container .elipse:nth-of-type(4) {
   left: 46.8%;
 }
 body .wrapper .welcome-part-container .welcome-part {
-  width: 100%;
   max-width: 1397px;
   z-index: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media screen and (min-width: 1588px) {
+  body .wrapper .welcome-part-container .welcome-part {
+    width: 100%;
+  }
 }
 body .wrapper .welcome-part-container .welcome-part header {
   width: 100%;
@@ -75,7 +79,7 @@ body .wrapper .welcome-part-container .welcome-part header .header-left-part {
 }
 @media screen and (min-width: 1230px) {
   body .wrapper .welcome-part-container .welcome-part header .header-left-part {
-    width: 60%;
+    width: 57.5%;
   }
 }
 body .wrapper .welcome-part-container .welcome-part header .header-left-part a {
@@ -92,14 +96,13 @@ body .wrapper .welcome-part-container .welcome-part header .header-left-part a:h
   border-bottom: 1px solid #5E3928;
 }
 body .wrapper .welcome-part-container .welcome-part header .header-right-part {
-  width: 15%;
+  width: 13.6%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 body .wrapper .welcome-part-container .welcome-part header .header-right-part .icon {
-  height: 50px;
-  width: 25%;
+  width: 26.31%;
   background: #FFF;
   display: flex;
   flex-direction: row;
@@ -109,7 +112,7 @@ body .wrapper .welcome-part-container .welcome-part header .header-right-part .i
 }
 body .wrapper .welcome-part-container .welcome-part header .header-right-part .icon i {
   color: #0B3F37;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 body .wrapper .welcome-part-container .welcome-part header .header-right-part .icon i:hover {
   background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
@@ -154,69 +157,90 @@ body .wrapper .welcome-part-container .welcome-part .info-product-container .abo
   height: 29px;
   margin-bottom: 5.2%;
 }
+@media screen and (max-width: 1400px) {
+  body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .flex-container {
+    width: 70%;
+  }
+}
 body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .flex-container p {
   font-family: "Mont", sans-serif;
   font-size: 1.875em;
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product button {
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product button[type=submit] {
   width: 44.7%;
   height: 50px;
   background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
   color: #fff;
   border: none;
   margin-bottom: 9.2%;
+  font-family: "Mont", sans-serif;
+  font-size: 1.125em;
+  font-weight: 300;
+}
+@media screen and (max-width: 1400px) {
+  body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product button[type=submit] {
+    width: 70%;
+  }
 }
 body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container {
-  display: grid;
-  grid-template-columns: repeat(3, 12px);
-  grid-template-rows: 12px 72px;
-  row-gap: 60px;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-}
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .custom-pointer {
+  max-width: 59px;
   width: 100%;
+  max-height: 122px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .item {
+  width: 20.33%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  opacity: 0;
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .custom-pointer div {
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .item .custom-pointer {
+  display: none;
+}
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .item .custom-pointer div {
   width: 1px;
   height: 64%;
   background: #fff;
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .custom-pointer:nth-of-type(1) {
-  grid-column: 1;
-  grid-row: 2;
-}
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .custom-pointer:nth-of-type(2) {
-  grid-column: 2;
-  grid-row: 2;
-}
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .custom-pointer:nth-of-type(3) {
-  grid-column: 3;
-  grid-row: 2;
-}
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .button {
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .item .button {
   width: 100%;
-  background: red;
+  height: 9.84%;
+  background: #fff;
+  border: none;
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .button:nth-of-type(1) {
-  grid-column: 1;
-  grid-row: 1;
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .item .button:focus {
+  background: linear-gradient(65.81deg, #5E3928 -24.09%, #E4A16F 104.02%);
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .button:nth-of-type(2) {
-  grid-column: 2;
-  grid-row: 1;
+body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .item .button:focus + .custom-pointer {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .button:nth-of-type(3) {
-  grid-column: 3;
-  grid-row: 1;
+body .wrapper .welcome-part-container .welcome-part .info-product-container .product {
+  position: relative;
 }
-body .wrapper .welcome-part-container .welcome-part .info-product-container .about-product .change-product-radio-buttons-container .button:hover .custom-pointer {
-  opacity: 1;
+body .wrapper .welcome-part-container .welcome-part .info-product-container .product .podium {
+  position: relative;
+  top: 80%;
+  left: -53%;
+}
+body .wrapper .welcome-part-container .welcome-part .info-product-container .product .picture-of-product {
+  position: absolute;
+  top: -13%;
+  left: -33%;
+}
+body .wrapper .welcome-part-container .welcome-part .info-product-container .product .picture-of-product div {
+  position: absolute;
+  top: 0;
+  left: -85%;
+  z-index: -1;
 }
 body .wrapper .welcome-part-container .arrow-left,
 body .wrapper .welcome-part-container .arrow-right {

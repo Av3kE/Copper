@@ -109,6 +109,7 @@ body {
                 max-width: 1397px;
                 z-index: 1;
                 height: 100%;
+                width: 80%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -118,7 +119,7 @@ body {
                 }
 
                 @media all and (max-width:1024px) {
-                    max-width: 100%;
+                    width: 95%;
                     margin: 0 auto;
                 }
 
@@ -250,11 +251,14 @@ body {
                     .about-product {
                         display: flex;
                         flex-direction: column;
-                        width: 40vw;
+                        // width: 40vw;
 
-                        @media all and (max-width:850px) {
+                        @media all and (max-width:768px) {
                             margin-left: 5vw;
-                            width: 38vw;
+                            width: 60vw;
+                            position: absolute;
+                            top: 25%;
+                            height: 100%;
                         }
 
                         h1 {
@@ -287,6 +291,10 @@ body {
                                 width: 70%;
                             }
 
+                            @media screen and (max-width:768px) {
+                                width: 55%;
+                            }
+
                             p {
                                 font-family: 'Mont', sans-serif;
                             }
@@ -307,6 +315,9 @@ body {
                             @media screen and (min-width:1885px) {
                                 margin-bottom: 9.2%
                             }
+                            @media screen and (max-width:768px) {
+                                margin-bottom: 35%
+                            }
 
                             font: {
                                 family: 'Mont', sans-serif;
@@ -316,6 +327,10 @@ body {
 
                             @media screen and (max-width:1400px) {
                                 width: 70%;
+                            }
+
+                            @media screen and (max-width:768px) {
+                                width: 55%;
                             }
                         }
 
@@ -376,6 +391,10 @@ body {
                         width: 472px;
                         height: 100%;
 
+                        @media screen and (max-width:768px) {
+                            right: -45%;
+                        }
+
                         .podium {
                             position: relative;
                             top: 85%;
@@ -407,7 +426,7 @@ body {
 
                             @media screen and (max-width:768px) {
                                 top: -2%;
-                                left: 2%;
+                                left: -5%;
                                 transform: scale(0.6);
                             }
 

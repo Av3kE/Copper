@@ -37,6 +37,7 @@ body {
         //welcome-part-container is for header, product content and for buttons on left and right
 
         .welcome-part-container {
+            overflow: hidden;
             width: 100%;
             height: 896px;
             display: flex;
@@ -53,8 +54,6 @@ body {
             //those elipses are a part of web-design
 
             .elipse {
-                // width: 59vw;
-                // height: 59vw;
                 width: 1132px;
                 height: 1132px;
                 border-radius: 100%;
@@ -315,6 +314,7 @@ body {
                             @media screen and (min-width:1885px) {
                                 margin-bottom: 9.2%
                             }
+
                             @media screen and (max-width:768px) {
                                 margin-bottom: 35%
                             }
@@ -616,42 +616,156 @@ body {
             }
 
             //these are buttons on left&right
-
             .arrow-left,
             .arrow-right {
-                display: flex;
-                flex-direction: row;
-                width: 4.6%;
-                border: 1px solid #fff;
-                height: 50px;
-                font-size: 1.75em;
-                color: #fff;
-                z-index: 1;
-                background: transparent;
-                cursor: pointer;
-
                 @media all and (max-width:1024px) {
                     display: none;
                 }
-
-                i {
-                    padding: 0.5em;
-                }
-            }
-
-            .arrow-left {
-                justify-content: flex-end;
-                align-items: center;
-            }
-
-            .arrow-right {
-                justify-content: flex-start;
-                align-items: center;
             }
         }
 
         .bold-text {
             font-weight: 800;
+        }
+
+        main {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+
+            .products-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 80px;
+
+                .products-wrapper {
+                    width: 100%;
+                    max-width: 1397px;
+
+                    h2 {
+                        margin: 3.95% 0 2.08% 0;
+                        font-family: 'Lighthaus';
+                        font-weight: 400;
+                        // font-size: 50px;
+                        @include adaptive-font(50, 24);
+                        color: #031412;
+                        text-align: center;
+                    }
+
+                    .item-container {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 31px;
+
+                        .item {
+                            width: 30%;
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+
+                            &:last-of-type {
+                                background: linear-gradient(285.45deg, rgba(11, 63, 55, 0.8) 38.27%, rgba(203, 141, 98, 0.8) 141.81%);
+
+
+                                p {
+                                    position: absolute;
+
+                                    &:first-of-type {
+                                        font-family: 'Mont';
+                                        font-weight: 900;
+                                        @include adaptive-font(40, 14);
+                                        top: 15%;
+                                        left: 20%;
+                                    }
+
+                                    &:nth-of-type(2) {
+                                        font-family: 'Mont';
+                                        font-weight: 900;
+                                        // font-size: 70px;
+                                        @include adaptive-font(70, 14);
+                                        top: 21%;
+                                        left: 45%;
+                                    }
+
+                                    &:last-of-type {
+                                        font-family: 'Mont';
+                                        font-weight: 900;
+                                        // font-size: 100px;
+                                        @include adaptive-font(100, 14);
+                                        line-height: 96.4%;
+                                        top: 50%;
+                                        left: 5%;
+                                    }
+                                }
+                            }
+
+                            .item-shadow-part {
+                                position: absolute;
+                                bottom: 0;
+                                width: 100%;
+                                height: 30%;
+                            }
+
+                            h3 {
+                                position: absolute;
+                                bottom: 0;
+                                text-align: center;
+                                font-family: 'Mont';
+                                font-weight: 600;
+                                @include adaptive-font(30, 12);
+                                color: #FFFFFF;
+                                margin: 6% 0 6% 0;
+                                background: none;
+                            }
+
+
+                            img {
+                                max-width: 100%;
+                                width: 100%;
+                                position: relative;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .arrow-left,
+        .arrow-right {
+            display: flex;
+            flex-direction: row;
+            width: 4.6%;
+            border: 1px solid #fff;
+            height: 50px;
+            font-size: 1.75em;
+            color: #fff;
+            z-index: 1;
+            background: transparent;
+            cursor: pointer;
+
+            @media all and (max-width:1024px) {
+                display: none;
+            }
+
+            i {
+                padding: 0.5em;
+            }
+        }
+
+        .arrow-left {
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .arrow-right {
+            justify-content: flex-start;
+            align-items: center;
         }
     }
 }

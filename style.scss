@@ -618,6 +618,9 @@ body {
             //these are buttons on left&right
             .arrow-left,
             .arrow-right {
+                color: #fff;
+                border-color: #fff;
+
                 @media all and (max-width:1024px) {
                     display: none;
                 }
@@ -633,14 +636,14 @@ body {
             position: relative;
             z-index: 2;
 
-            .products-container {
+            .main-items-content-wrapper {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 margin-bottom: 80px;
 
-                .products-wrapper {
+                .items-container {
                     width: 100%;
                     max-width: 1397px;
 
@@ -648,64 +651,67 @@ body {
                         margin: 3.95% 0 2.08% 0;
                         font-family: 'Lighthaus';
                         font-weight: 400;
-                        // font-size: 50px;
                         @include adaptive-font(50, 24);
                         color: #031412;
                         text-align: center;
+
+                        @media screen and (max-width:525px) {
+                            margin: 5% 0;
+                        }
                     }
 
-                    .item-container {
+                    .tile-container {
                         display: flex;
                         flex-direction: row;
                         flex-wrap: wrap;
                         justify-content: center;
                         gap: 31px;
 
-                        .item {
-                            width: 30%;
+                        @media screen and (max-width:768px) {
+                            gap: 14.1px;
+                        }
+
+                        .tile {
+                            cursor: pointer;
+                            width: 31.8%;
                             position: relative;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                             box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
 
-                            &:last-of-type {
-                                background: linear-gradient(285.45deg, rgba(11, 63, 55, 0.8) 38.27%, rgba(203, 141, 98, 0.8) 141.81%);
+                            @media screen and (max-width:1478px) {
+                                width: 29%;
+                            }
 
+                            @media screen and (max-width:500px) {
+                                width: 40%;
+                            }
 
-                                p {
-                                    position: absolute;
+                            .add-to-favourite {
+                                width: 11.21%;
+                                height: 11.11%;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                align-items: center;
+                                background: #FFFFFF;
 
-                                    &:first-of-type {
-                                        font-family: 'Mont';
-                                        font-weight: 900;
-                                        @include adaptive-font(40, 14);
-                                        top: 15%;
-                                        left: 20%;
-                                    }
+                                i {
+                                    color: #031412;
+                                    // font-size: 2em;
+                                    @include adaptive-font(32, 16);
 
-                                    &:nth-of-type(2) {
-                                        font-family: 'Mont';
-                                        font-weight: 900;
-                                        // font-size: 70px;
-                                        @include adaptive-font(70, 14);
-                                        top: 21%;
-                                        left: 45%;
-                                    }
-
-                                    &:last-of-type {
-                                        font-family: 'Mont';
-                                        font-weight: 900;
-                                        // font-size: 100px;
-                                        @include adaptive-font(100, 14);
-                                        line-height: 96.4%;
-                                        top: 50%;
-                                        left: 5%;
+                                    &:hover {
+                                        background: linear-gradient(92.16deg, #5E3928 21.33%, #E4A16F 93.02%);
                                     }
                                 }
                             }
 
-                            .item-shadow-part {
+                            .tile-shadow-part {
                                 position: absolute;
                                 bottom: 0;
                                 width: 100%;
@@ -731,27 +737,154 @@ body {
                                 position: relative;
                                 z-index: -1;
                             }
+
+                            .tile-description-container {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: flex-end;
+                                // height: 13.05%;
+                                width: 100%;
+
+                                p:not(.discout-counts) {
+                                    color: #031412;
+                                    font-family: 'Mont';
+                                    font-style: normal;
+                                    padding: 8.59% 0;
+
+                                    &:first-of-type {
+                                        width: 57%;
+                                        text-align: left;
+                                        @include adaptive-font(20, 15);
+                                        font-weight: 800;
+                                    }
+
+                                    &:last-of-type {
+                                        @include adaptive-font(30, 20);
+                                        font-weight: 800;
+                                    }
+                                }
+                            }
+                        }
+
+                        .specific-first-tile:hover {
+                            .tile-shadow-part {
+                                background: linear-gradient(351.3deg, rgba(203, 141, 98, 0) 33.24%, #CB8D62 104.72%);
+                                transform: rotate(180deg);
+                                height: 100%;
+                                z-index: -1;
+                            }
+                        }
+
+                        .specific-last-tile {
+                            background: linear-gradient(285.45deg, rgba(11, 63, 55, 0.8) 38.27%, rgba(203, 141, 98, 0.8) 141.81%);
+
+                            p {
+                                position: absolute;
+
+                                &:first-child {
+                                    font-family: 'Mont';
+                                    font-weight: 900;
+                                    @include adaptive-font(40, 14);
+                                    top: 15%;
+                                    left: 20%;
+                                }
+
+                                &:nth-of-type(2) {
+                                    font-family: 'Mont';
+                                    font-weight: 900;
+                                    @include adaptive-font(70, 14);
+                                    top: 21%;
+                                    left: 45%;
+                                }
+
+                                &:last-of-type {
+                                    font-family: 'Mont';
+                                    font-weight: 900;
+                                    @include adaptive-font(100, 14);
+                                    line-height: 96.4%;
+                                    top: 50%;
+                                    left: 5%;
+                                }
+                            }
                         }
                     }
                 }
             }
+
+            .best-sellers {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .main-items-content-wrapper>.items-container>.tile-container {
+
+                    .specific-first-tile {
+
+                        div:first-of-type {
+                            position: relative;
+                        }
+
+                        &:hover {
+                            div {
+                                .tile-shadow-part {
+                                    background: linear-gradient(351.3deg, rgba(203, 141, 98, 0) 33.24%, #CB8D62 104.72%);
+                                    transform: rotate(180deg);
+                                    z-index: -1;
+                                    position: absolute;
+                                }
+                            }
+                        }
+                    }
+
+                    .tile {
+                        box-shadow: none;
+
+                        img {
+                            box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+                        }
+
+                        @media screen and (max-width:946px) {
+                            &:last-of-type {
+                                display: none;
+                            }
+
+                            width:42%;
+                        }
+
+                        @media screen and (max-width:525px) {
+                            &:nth-of-type(2) {
+                                display: none;
+                            }
+
+                            width:80%;
+                        }
+                    }
+                }
+
+                .arrow-right,
+                .arrow-left {
+                    @media screen and (max-width:768px) {
+                        display: none;
+                    }
+                }
+            }
         }
+
         .arrow-left,
         .arrow-right {
             display: flex;
             flex-direction: row;
             width: 4.6%;
-            border: 1px solid #fff;
+            border: 1px solid #000;
             height: 50px;
             font-size: 1.75em;
-            color: #fff;
+            color: #000;
             z-index: 1;
             background: transparent;
             cursor: pointer;
-
-            @media all and (max-width:1024px) {
-                display: none;
-            }
 
             i {
                 padding: 0.5em;

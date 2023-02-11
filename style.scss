@@ -1,0 +1,956 @@
+                      *,
+                      ::before,
+                      ::after {
+                          box-sizing: border-box;
+                      }
+
+                      //this is a declaration of mixin to make a font adaptive))
+
+                      $maxWidth: 1920;
+
+                      @mixin adaptive-font($pcSize, $mobSize) {
+                          $addSize: $pcSize - $mobSize;
+                          $addMobSize: $addSize +$addSize * 0.7;
+
+                          @media (max-width:767px) {
+                              font-size:calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+                          }
+
+                          @media (min-width:767px) {
+                              font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+                          }
+                      }
+
+                      //here we go again
+
+                      body {
+                          font-size: 16px;
+                          color: #fff;
+
+                          .wrapper {
+                              width: 100%;
+                              overflow: hidden;
+                              display: flex;
+                              flex-direction: column;
+                              justify-content: space-between;
+
+                              //welcome-part-container is for header, product content and for buttons on left and right
+
+                              .welcome-part-container {
+                                  overflow: hidden;
+                                  width: 100%;
+                                  height: 896px;
+                                  display: flex;
+                                  flex-direction: row;
+                                  justify-content: space-between;
+                                  align-items: center;
+                                  position: relative;
+                                  background: linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%);
+
+                                  @media all and (max-width:768px) {
+                                      height: 1024px;
+                                  }
+
+                                  //those elipses are a part of web-design
+
+                                  .elipse {
+                                      width: 1132px;
+                                      height: 1132px;
+                                      border-radius: 100%;
+                                      position: absolute;
+                                      border: 1px solid rgba(255, 255, 255, 0.15);
+                                      z-index: 0;
+
+                                      //positioning for each of them
+
+                                      &:nth-of-type(1) {
+                                          top: -48.13%;
+                                          left: -26.77%;
+
+                                          @media screen and (max-width:768px) {
+                                              display: none;
+                                          }
+                                      }
+
+                                      &:nth-of-type(2) {
+                                          top: -14.3%;
+                                          left: -5.83%;
+
+                                          @media screen and (max-width:768px) {
+                                              display: none;
+                                          }
+                                      }
+
+                                      &:nth-of-type(3) {
+                                          top: 62.2%;
+                                          left: 21.92%;
+
+                                          @media screen and (max-width:768px) {
+                                              left: -100%;
+                                              top: 0;
+                                          }
+                                      }
+
+                                      &:nth-of-type(4) {
+                                          top: -6.79%;
+                                          left: 46.8%;
+
+                                          @media screen and (max-width:768px) {
+                                              top: -5%;
+                                              left: 39%;
+                                          }
+                                      }
+                                  }
+
+                                  //welcome-part is for content in the middle
+
+                                  .welcome-part {
+                                      max-width: 1397px;
+                                      z-index: 1;
+                                      height: 100%;
+                                      width: 80%;
+                                      display: flex;
+                                      flex-direction: column;
+                                      justify-content: space-between;
+
+                                      @media screen and (min-width:1589px) {
+                                          width: 100%;
+                                      }
+
+                                      @media all and (max-width:1024px) {
+                                          width: 95%;
+                                          margin: 0 auto;
+                                      }
+
+                                      header {
+                                          width: 100%;
+                                          display: flex;
+                                          flex-direction: row;
+                                          justify-content: space-between;
+                                          font-family: 'Mont', sans-serif;
+                                          position: relative;
+
+                                          @media all and (max-width:1024px) {
+                                              width: 95%;
+                                              margin: 0 auto;
+                                          }
+
+                                          @media all and (max-width:768px) {
+                                              width: 86.7%;
+                                              height: 143px;
+                                          }
+
+                                          // I've divided header on two separated parts. Left part consists from logo and nav, right - icon buttons
+
+
+                                          .header-left-part {
+                                              width: 80%;
+                                              display: flex;
+                                              flex-direction: row;
+                                              justify-content: space-between;
+                                              align-items: flex-end;
+                                              margin-top: 2em;
+
+                                              @media screen and (min-width:1588px) {
+                                                  width: 57.5%;
+                                              }
+
+                                              @media screen and (max-width:768px) {
+                                                  flex-direction: column;
+                                                  justify-content: space-between;
+                                                  align-items: unset;
+                                                  width: 100%;
+                                              }
+
+                                              nav {
+                                                  width: 70%;
+                                                  display: flex;
+                                                  flex-direction: row;
+                                                  justify-content: space-between;
+                                                  align-items: flex-end;
+                                                  height: 100%;
+
+                                                  @media screen and (max-width:768px) {
+                                                      align-self: center;
+                                                      width: 84%;
+                                                  }
+
+                                                  a {
+                                                      color: #FFF;
+                                                      text-decoration: none;
+                                                      font-weight: 600;
+
+                                                      &:hover {
+                                                          background: linear-gradient(92.09deg, #5E3928 -79.4%, #E4A16F 84.12%);
+                                                          -webkit-background-clip: text;
+                                                          -webkit-text-fill-color: transparent;
+                                                          background-clip: text;
+                                                          text-fill-color: transparent;
+                                                          border-bottom: 1px solid #5E3928;
+                                                      }
+                                                  }
+
+                                              }
+                                          }
+
+                                          .header-right-part {
+                                              width: 13.6%;
+                                              display: flex;
+                                              flex-direction: row;
+                                              justify-content: space-between;
+                                              height: 83px;
+
+                                              @media all and (max-width:1024px) {
+                                                  width: 15%;
+                                              }
+
+                                              @media screen and (max-width:768px) {
+                                                  position: absolute;
+                                                  right: 0;
+                                                  top: 0;
+                                                  width: 30%;
+                                              }
+
+                                              .icon {
+                                                  width: 26.31%;
+                                                  background: #FFF;
+                                                  display: flex;
+                                                  flex-direction: row;
+                                                  align-items: flex-end;
+                                                  justify-content: center;
+                                                  padding-bottom: 5px;
+                                                  cursor: pointer;
+
+                                                  i {
+                                                      color: #0B3F37;
+                                                      font-size: 1.6em;
+
+                                                      &:hover {
+                                                          background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                                          -webkit-background-clip: text;
+                                                          -webkit-text-fill-color: transparent;
+                                                          background-clip: text;
+                                                          text-fill-color: transparent;
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      }
+
+                                      //container for product content
+
+                                      .info-product-container {
+                                          width: 100%;
+                                          height: 80%;
+                                          display: flex;
+                                          flex-direction: row;
+                                          justify-content: space-between;
+                                          position: relative;
+
+                                          .about-product {
+                                              display: flex;
+                                              flex-direction: column;
+                                              // width: 40vw;
+
+                                              @media all and (max-width:768px) {
+                                                  margin-left: 5vw;
+                                                  width: 60vw;
+                                                  position: absolute;
+                                                  top: 25%;
+                                                  height: 100%;
+                                              }
+
+                                              h1 {
+                                                  font-family: 'Lighthaus', sans-serif;
+                                                  @include adaptive-font(100, 30);
+                                                  margin-bottom: 5.5%;
+                                              }
+
+                                              .underline {
+                                                  width: 90%;
+                                                  height: 1px;
+                                                  background: linear-gradient(90deg, #fff 0%, transparent 100%);
+                                                  margin-bottom: 6.5%;
+                                              }
+
+                                              h2 {
+                                                  font-family: 'Mont', sans-serif;
+                                                  @include adaptive-font(50, 20);
+                                                  margin-bottom: 5.2%;
+                                              }
+
+                                              .flex-container {
+                                                  width: 44.7%;
+                                                  display: flex;
+                                                  flex-direction: row;
+                                                  justify-content: space-between;
+                                                  height: 29px;
+
+                                                  @media screen and (max-width:1400px) {
+                                                      width: 70%;
+                                                  }
+
+                                                  @media screen and (max-width:768px) {
+                                                      width: 55%;
+                                                  }
+
+                                                  p {
+                                                      font-family: 'Mont', sans-serif;
+                                                  }
+
+                                                  @include adaptive-font(30, 24);
+                                                  margin-bottom:5.2%;
+                                              }
+
+                                              button[type="submit"] {
+                                                  width: 44.7%;
+                                                  height: 50px;
+                                                  background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                                  color: #fff;
+                                                  border: none;
+                                                  margin-bottom: 5%;
+                                                  cursor: pointer;
+
+                                                  @media screen and (min-width:1885px) {
+                                                      margin-bottom: 9.2%
+                                                  }
+
+                                                  @media screen and (max-width:768px) {
+                                                      margin-bottom: 35%
+                                                  }
+
+                                                  font: {
+                                                      family: 'Mont', sans-serif;
+                                                      size: 1.125em;
+                                                      weight: 300;
+                                                  }
+
+                                                  @media screen and (max-width:1400px) {
+                                                      width: 70%;
+                                                  }
+
+                                                  @media screen and (max-width:768px) {
+                                                      width: 55%;
+                                                  }
+                                              }
+
+                                              // change product... is a container for thosе indicators, that shows what page you are on.
+
+                                              .change-product-radio-buttons-container {
+                                                  max-width: 59px;
+                                                  width: 100%;
+                                                  max-height: 122px;
+                                                  height: 100%;
+                                                  display: flex;
+                                                  flex-direction: row;
+                                                  justify-content: space-between;
+
+                                                  .item {
+                                                      width: 20.33%;
+                                                      height: 100%;
+                                                      display: flex;
+                                                      flex-direction: column;
+                                                      justify-content: space-between;
+
+                                                      .custom-pointer {
+                                                          display: none;
+
+                                                          div {
+                                                              width: 1px;
+                                                              height: 64%;
+                                                              background: #fff;
+                                                          }
+                                                      }
+
+                                                      .button {
+                                                          width: 100%;
+                                                          height: 9.84%;
+                                                          background: #fff;
+                                                          border: none;
+                                                          cursor: pointer;
+
+                                                          &:focus {
+                                                              background: linear-gradient(65.81deg, #5E3928 -24.09%, #E4A16F 104.02%);
+                                                          }
+                                                      }
+
+                                                      .button:focus+.custom-pointer {
+                                                          width: 100%;
+                                                          height: 55%;
+                                                          display: flex;
+                                                          flex-direction: column;
+                                                          align-items: center;
+                                                          justify-content: space-between;
+                                                      }
+                                                  }
+                                              }
+                                          }
+
+                                          .product {
+                                              position: relative;
+                                              width: 472px;
+                                              height: 100%;
+
+                                              @media screen and (max-width:768px) {
+                                                  right: -45%;
+                                              }
+
+                                              .podium {
+                                                  position: relative;
+                                                  top: 85%;
+                                                  left: -25%;
+                                                  transform: scale(1.7);
+
+                                                  @media screen and (max-width:1588px) {
+                                                      left: 0;
+                                                      transform: scale(1.3);
+                                                  }
+
+                                                  @media screen and (max-width:768px) {
+                                                      top: 82%;
+                                                      right: 20%;
+                                                      transform: scale(1);
+                                                  }
+                                              }
+
+                                              .picture-of-product {
+                                                  position: relative;
+                                                  top: -37%;
+                                                  left: -30%;
+
+                                                  @media screen and (max-width:1588px) {
+                                                      left: 0;
+                                                      top: -24%;
+                                                      transform: scale(0.8);
+                                                  }
+
+                                                  @media screen and (max-width:768px) {
+                                                      top: -2%;
+                                                      left: -5%;
+                                                      transform: scale(0.6);
+                                                  }
+
+                                                  .additional-info {
+                                                      position: absolute;
+                                                      width: 198px;
+                                                      height: 125px;
+                                                      z-index: 2;
+
+                                                      .invisible {
+                                                          opacity: 0;
+                                                      }
+
+                                                      .item-1,
+                                                      .item-2,
+                                                      .item-3 {
+                                                          border: 0;
+                                                          background: none;
+                                                          padding: 0;
+                                                      }
+
+                                                      .item-1 {
+                                                          border-radius: 100%;
+                                                          position: absolute;
+                                                          top: 0;
+                                                          right: 0;
+                                                          z-index: 3;
+                                                          cursor: pointer;
+
+                                                          .outter-circle {
+                                                              display: flex;
+                                                              flex-direction: row;
+                                                              justify-content: center;
+                                                              align-items: center;
+                                                              border-radius: 100%;
+                                                              position: relative;
+                                                              width: 30px;
+                                                              height: 30px;
+                                                              background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+
+                                                              .inner-circle {
+                                                                  border-radius: 100%;
+                                                                  position: absolute;
+                                                                  width: 18px;
+                                                                  height: 18px;
+                                                                  background: #fff;
+                                                              }
+                                                          }
+                                                      }
+
+                                                      .item-2 {
+                                                          border: 1px solid #FFFFFF;
+                                                          transform: rotate(-15.13deg);
+                                                          position: absolute;
+                                                          z-index: 2;
+                                                          width: 80%;
+                                                          top: 25%;
+                                                          right: 0;
+                                                      }
+
+                                                      .item-3 {
+                                                          height: 100%;
+                                                          width: 125px;
+                                                          position: absolute;
+                                                          z-index: 3;
+
+                                                          img {
+                                                              width: 100%;
+                                                              max-width: 100%;
+                                                              border-radius: 100%;
+                                                          }
+                                                      }
+
+                                                      //I didn't figure out how to do it. Another words: "I need JS>"
+
+                                                      .item-1:focus+.invisible {
+                                                          opacity: 1;
+                                                          transition: all 0.7s ease-in;
+                                                      }
+
+                                                      .item-1:focus+.invisible+.invisible {
+                                                          opacity: 1;
+                                                          transition: all 0.2s ease-out;
+                                                      }
+                                                  }
+
+                                                  .add-info-first {
+                                                      top: 8.5%;
+                                                      left: -6%;
+                                                  }
+
+                                                  .add-info-second {
+                                                      top: 41.9%;
+                                                      left: -24%;
+                                                  }
+
+                                                  .add-info-third {
+                                                      top: 75%;
+                                                      left: -2%;
+                                                  }
+
+                                                  .white-shadow {
+                                                      width: 592px;
+                                                      position: absolute;
+                                                      top: -15%;
+                                                      left: -39%;
+                                                      background: radial-gradient(46.46% 46.46% at 50% 50%, #C4C4C4 0%, rgba(196, 196, 196, 0) 100%);
+                                                      filter: blur(75px);
+                                                      z-index: -1;
+                                                      height: 1311px;
+                                                  }
+
+                                                  .shadow-1,
+                                                  .shadow-2,
+                                                  .shadow-3 {
+                                                      position: absolute;
+                                                  }
+
+                                                  .shadow-1 {
+                                                      bottom: -4%;
+                                                      left: -7%;
+                                                  }
+
+                                                  .shadow-2 {
+                                                      bottom: -5%;
+                                                      left: -20%;
+                                                  }
+
+                                                  .shadow-3 {
+                                                      bottom: -7%;
+                                                      left: -5%;
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+
+                                  //forest right background...
+
+                                  .right-part-bg {
+                                      position: absolute;
+                                      right: -30%;
+                                      z-index: 0;
+                                      bottom: 0;
+                                      transform: scale(1.1);
+                                      width: 70vw;
+                                      height: 100%;
+
+                                      @media screen and (max-width:1200px) {
+                                          right: 0;
+                                      }
+
+                                      @media screen and (max-width:768px) {
+                                          width: 893px;
+                                          height: 893px;
+                                          left: 50%;
+                                          bottom: -5%;
+                                          right: unset;
+                                      }
+                                  }
+
+                                  //...and text for it
+
+                                  .text-for-rpbg {
+                                      text-align: right;
+                                      font-family: 'Lighthaus', sans-serif;
+                                      @include adaptive-font(160, 90);
+                                      position: absolute;
+                                      bottom: 0;
+                                      right: 0;
+                                      line-height: 74.9%;
+                                      z-index: 0;
+
+                                      @media screen and (max-width:1588px) {
+                                          right: -5%;
+                                      }
+
+                                      @media screen and (max-width:768px) {
+                                          transform: scale(0.7);
+                                          right: -10%;
+                                          bottom: -1%;
+                                      }
+
+                                      @media screen and (max-width:750px) {
+                                          display: none;
+                                      }
+                                  }
+
+                                  //these are buttons on left&right
+                                  .arrow-left,
+                                  .arrow-right {
+                                      color: #fff;
+                                      border-color: #fff;
+
+                                      @media all and (max-width:1024px) {
+                                          display: none;
+                                      }
+                                  }
+                              }
+
+                              .bold-text {
+                                  font-weight: 800;
+                              }
+
+                              main {
+                                  width: 100%;
+                                  position: relative;
+                                  z-index: 2;
+
+                                  .main-items-content-wrapper {
+                                      width: 100%;
+                                      display: flex;
+                                      flex-direction: column;
+                                      align-items: center;
+                                      margin-bottom: 80px;
+
+                                      .items-container {
+                                          width: 100%;
+                                          max-width: 1397px;
+                                          margin-bottom: 2%;
+
+                                          h2 {
+                                              margin: 3.95% 0 2.08% 0;
+                                              font-family: 'Lighthaus';
+                                              font-weight: 400;
+                                              @include adaptive-font(50, 24);
+                                              color: #031412;
+                                              text-align: center;
+
+                                              @media screen and (max-width:525px) {
+                                                  margin: 5% 0;
+                                              }
+                                          }
+
+                                          .tile-container {
+                                              display: flex;
+                                              flex-direction: row;
+                                              flex-wrap: wrap;
+                                              justify-content: center;
+                                              gap: 31px;
+
+                                              @media screen and (max-width:768px) {
+                                                  gap: 14.1px;
+                                              }
+
+                                              .tile {
+                                                  cursor: pointer;
+                                                  width: 31.8%;
+                                                  position: relative;
+                                                  display: flex;
+                                                  flex-direction: column;
+                                                  align-items: center;
+                                                  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+
+                                                  @media screen and (max-width:1478px) {
+                                                      width: 29%;
+                                                  }
+
+                                                  @media screen and (max-width:500px) {
+                                                      width: 40%;
+                                                  }
+
+                                                  .add-to-favourite {
+                                                      width: 11.21%;
+                                                      height: 11.11%;
+                                                      position: absolute;
+                                                      top: 0;
+                                                      right: 0;
+                                                      display: flex;
+                                                      flex-direction: row;
+                                                      justify-content: center;
+                                                      align-items: center;
+                                                      background: #FFFFFF;
+
+                                                      i {
+                                                          color: #031412;
+                                                          // font-size: 2em;
+                                                          @include adaptive-font(32, 16);
+
+                                                          &:hover {
+                                                              background: linear-gradient(92.16deg, #5E3928 21.33%, #E4A16F 93.02%);
+                                                          }
+                                                      }
+                                                  }
+
+                                                  .tile-shadow-part {
+                                                      position: absolute;
+                                                      bottom: 0;
+                                                      width: 100%;
+                                                      height: 30%;
+                                                  }
+
+                                                  h3 {
+                                                      position: absolute;
+                                                      bottom: 0;
+                                                      text-align: center;
+                                                      font-family: 'Mont';
+                                                      font-weight: 600;
+                                                      @include adaptive-font(30, 12);
+                                                      color: #FFFFFF;
+                                                      margin: 6% 0 6% 0;
+                                                      background: none;
+                                                  }
+
+
+                                                  img {
+                                                      max-width: 100%;
+                                                      width: 100%;
+                                                      position: relative;
+                                                      z-index: -1;
+                                                  }
+
+                                                  .tile-description-container {
+                                                      display: flex;
+                                                      flex-direction: row;
+                                                      justify-content: space-between;
+                                                      align-items: flex-end;
+                                                      // height: 13.05%;
+                                                      width: 100%;
+
+                                                      p:not(.discout-counts) {
+                                                          color: #031412;
+                                                          font-family: 'Mont';
+                                                          font-style: normal;
+                                                          padding: 8.59% 0;
+
+                                                          &:first-of-type {
+                                                              width: 57%;
+                                                              text-align: left;
+                                                              @include adaptive-font(20, 15);
+                                                              font-weight: 800;
+                                                          }
+
+                                                          &:last-of-type {
+                                                              @include adaptive-font(30, 20);
+                                                              font-weight: 800;
+                                                          }
+                                                      }
+                                                  }
+                                              }
+
+                                              .specific-first-tile:hover {
+                                                  .tile-shadow-part {
+                                                      background: linear-gradient(351.3deg, rgba(203, 141, 98, 0) 33.24%, #CB8D62 104.72%);
+                                                      transform: rotate(180deg);
+                                                      height: 100%;
+                                                      z-index: -1;
+                                                  }
+                                              }
+
+                                              .specific-last-tile {
+                                                  background: linear-gradient(285.45deg, rgba(11, 63, 55, 0.8) 38.27%, rgba(203, 141, 98, 0.8) 141.81%);
+
+                                                  p {
+                                                      position: absolute;
+
+                                                      &:first-child {
+                                                          font-family: 'Mont';
+                                                          font-weight: 900;
+                                                          @include adaptive-font(40, 14);
+                                                          top: 15%;
+                                                          left: 20%;
+                                                      }
+
+                                                      &:nth-of-type(2) {
+                                                          font-family: 'Mont';
+                                                          font-weight: 900;
+                                                          @include adaptive-font(70, 14);
+                                                          top: 21%;
+                                                          left: 45%;
+                                                      }
+
+                                                      &:last-of-type {
+                                                          font-family: 'Mont';
+                                                          font-weight: 900;
+                                                          @include adaptive-font(100, 14);
+                                                          line-height: 96.4%;
+                                                          top: 50%;
+                                                          left: 5%;
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      }
+
+                                      .radio-btns-container {
+                                          width: 100%;
+                                          display: flex;
+                                          flex-direction: row;
+                                          justify-content: center;
+                                          height: 12px;
+                                          margin-bottom: 3%;
+
+                                          .radio-btn {
+                                              cursor: pointer;
+                                              margin: 0 10px;
+                                              width: 12px;
+                                              height: 12px;
+                                              background: #031412;
+                                              border: none;
+
+                                              &:hover {
+                                                  background: linear-gradient(65.81deg, #5E3928 -24.09%, #E4A16F 104.02%);
+                                              }
+
+                                              &:focus {
+                                                  background: linear-gradient(65.81deg, #5E3928 -24.09%, #E4A16F 104.02%);
+                                              }
+                                          }
+                                      }
+
+                                      button[type="submit"] {
+                                          cursor: pointer;
+                                          width: 18.6%;
+                                          height: 50px;
+                                          background: #fff;
+                                          border: 1px solid #000;
+                                          font-family: 'Mont';
+                                          font-weight: 800;
+                                          font-size: 18px;
+                                          
+
+                                          &:hover {
+                                              background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                              color: white;
+                                              transition: background 1s ease-in 0.5s;
+                                              border: none;
+                                          }
+                                      }
+                                  }
+
+                                  .best-sellers {
+                                      width: 100%;
+                                      display: flex;
+                                      flex-direction: row;
+                                      justify-content: space-between;
+                                      align-items: center;
+
+                                      .main-items-content-wrapper>.items-container>.tile-container {
+
+                                          .specific-first-tile {
+
+                                              div:first-of-type {
+                                                  position: relative;
+                                              }
+
+                                              &:hover {
+                                                  div {
+                                                      .tile-shadow-part {
+                                                          background: linear-gradient(351.3deg, rgba(203, 141, 98, 0) 33.24%, #CB8D62 104.72%);
+                                                          transform: rotate(180deg);
+                                                          z-index: -1;
+                                                          position: absolute;
+                                                      }
+                                                  }
+                                              }
+                                          }
+
+                                          .tile {
+                                              box-shadow: none;
+
+                                              img {
+                                                  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+                                              }
+
+                                              @media screen and (max-width:946px) {
+                                                  &:last-of-type {
+                                                      display: none;
+                                                  }
+
+                                                  width:42%;
+                                              }
+
+                                              @media screen and (max-width:525px) {
+                                                  &:nth-of-type(2) {
+                                                      display: none;
+                                                  }
+
+                                                  width:80%;
+                                              }
+                                          }
+                                      }
+
+                                      .arrow-right,
+                                      .arrow-left {
+                                          @media screen and (max-width:768px) {
+                                              display: none;
+                                          }
+
+                                          &:hover {
+                                              background: linear-gradient(92.18deg, #E4A16F 20.13%, #5E3928 92.93%);
+                                              color: #fff;
+                                              border-color: #fff;
+                                          }
+                                      }
+                                  }
+                              }
+
+                              .arrow-left,
+                              .arrow-right {
+                                  display: flex;
+                                  flex-direction: row;
+                                  width: 4.6%;
+                                  border: 1px solid #000;
+                                  height: 50px;
+                                  font-size: 1.75em;
+                                  color: #000;
+                                  z-index: 1;
+                                  background: transparent;
+                                  cursor: pointer;
+
+                                  i {
+                                      padding: 0.5em;
+                                  }
+                              }
+
+                              .arrow-left {
+                                  justify-content: flex-end;
+                                  align-items: center;
+                              }
+
+                              .arrow-right {
+                                  justify-content: flex-start;
+                                  align-items: center;
+                              }
+                          }
+                      }

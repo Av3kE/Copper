@@ -21,6 +21,53 @@
                           }
                       }
 
+                      @mixin elipses-styling {
+                          width: 1132px;
+                          height: 1132px;
+                          border-radius: 100%;
+                          position: absolute;
+                          border: 1px solid rgba(255, 255, 255, 0.15);
+                          z-index: 0;
+                      }
+
+                      @mixin text-for-rpbg {
+                          text-align: right;
+                          font-family: 'Lighthaus', sans-serif;
+                          @include adaptive-font(160, 90);
+                          position: absolute;
+                          bottom: 0;
+                          right: 0;
+                          line-height: 74.9%;
+                          z-index: 0;
+
+                          @media screen and (max-width:1588px) {
+                              right: -5%;
+                          }
+
+                          @media screen and (max-width:768px) {
+                              transform: scale(0.7);
+                              right: -10%;
+                              bottom: -1%;
+                          }
+
+                          @media screen and (max-width:750px) {
+                              display: none;
+                          }
+                      }
+
+                      @mixin h2 {
+                          margin: 3.95% 0 2.08% 0;
+                          font-family: 'Lighthaus';
+                          font-weight: 400;
+                          @include adaptive-font(50, 24);
+                          color: #031412;
+                          text-align: center;
+
+                          @media screen and (max-width:525px) {
+                              margin: 5% 0;
+                          }
+                      }
+
                       //here we go again
 
                       body {
@@ -54,12 +101,7 @@
                                   //those elipses are a part of web-design
 
                                   .elipse {
-                                      width: 1132px;
-                                      height: 1132px;
-                                      border-radius: 100%;
-                                      position: absolute;
-                                      border: 1px solid rgba(255, 255, 255, 0.15);
-                                      z-index: 0;
+                                      @include elipses-styling;
 
                                       //positioning for each of them
 
@@ -591,28 +633,7 @@
                                   //...and text for it
 
                                   .text-for-rpbg {
-                                      text-align: right;
-                                      font-family: 'Lighthaus', sans-serif;
-                                      @include adaptive-font(160, 90);
-                                      position: absolute;
-                                      bottom: 0;
-                                      right: 0;
-                                      line-height: 74.9%;
-                                      z-index: 0;
-
-                                      @media screen and (max-width:1588px) {
-                                          right: -5%;
-                                      }
-
-                                      @media screen and (max-width:768px) {
-                                          transform: scale(0.7);
-                                          right: -10%;
-                                          bottom: -1%;
-                                      }
-
-                                      @media screen and (max-width:750px) {
-                                          display: none;
-                                      }
+                                      @include text-for-rpbg;
                                   }
 
                                   //these are buttons on left&right
@@ -623,6 +644,82 @@
 
                                       @media all and (max-width:1024px) {
                                           display: none;
+                                      }
+                                  }
+                              }
+
+                              .special-offer {
+                                  .product {
+                                      position: relative;
+                                      width: 308px;
+                                      height: 100%;
+                                      left: 55%;
+                                      z-index: 1;
+
+                                      @media screen and (max-width:768px) {
+                                          width: 150px;
+                                          top: 50%;
+                                          height: 50%;
+                                          left: 70%;
+                                      }
+
+                                      @media screen and (max-width:350px) {
+                                          left: 40%;
+                                      }
+
+                                      .podium {
+                                          position: relative;
+                                          top: 76%;
+                                          left: -25%;
+                                          transform: none;
+                                          width: 79.54%;
+
+                                          img {
+                                              width: 100%;
+                                          }
+                                      }
+
+                                      .picture-of-product {
+                                          position: relative;
+                                          top: -17%;
+                                          left: -6%;
+                                          width: 61.36%;
+
+                                          img {
+                                              width: 100%;
+                                          }
+
+                                          .white-shadow {
+                                              width: 100%;
+                                              left: -15%;
+                                              height: 681px;
+                                              position: absolute;
+                                              z-index: -1;
+                                              background: radial-gradient(46.46% 46.46% at 50% 50%, #C4C4C4 0%, rgba(196, 196, 196, 0) 100%);
+                                              filter: blur(75px);
+                                          }
+
+                                          .shadow-1,
+                                          .shadow-2,
+                                          .shadow-3 {
+                                              position: absolute;
+                                              transform: scale(0.8);
+                                          }
+
+                                          .shadow-1 {
+                                              bottom: -7%;
+                                              left: -35%;
+                                          }
+
+                                          .shadow-2 {
+                                              bottom: -5%;
+                                              left: -20%;
+                                          }
+
+                                          .shadow-3 {
+                                              bottom: -7%;
+                                              left: -25%;
+                                          }
                                       }
                                   }
                               }
@@ -646,19 +743,10 @@
                                       .items-container {
                                           width: 100%;
                                           max-width: 1397px;
-                                          margin-bottom: 2%;
+                                          margin-bottom: 5%;
 
                                           h2 {
-                                              margin: 3.95% 0 2.08% 0;
-                                              font-family: 'Lighthaus';
-                                              font-weight: 400;
-                                              @include adaptive-font(50, 24);
-                                              color: #031412;
-                                              text-align: center;
-
-                                              @media screen and (max-width:525px) {
-                                                  margin: 5% 0;
-                                              }
+                                              @include h2;
                                           }
 
                                           .tile-container {
@@ -829,37 +917,11 @@
                                               }
                                           }
                                       }
-
-                                      button[type="submit"] {
-                                          cursor: pointer;
-                                          width: 18.6%;
-                                          height: 50px;
-                                          background: #fff;
-                                          border: 1px solid #000;
-                                          font-family: 'Mont';
-                                          font-weight: 800;
-                                          font-size: 18px;
-
-
-                                          @media screen and (max-width:1290px) {
-                                              width: 35%;
-                                          }
-
-                                          @media screen and (max-width:700px) {
-                                              width: 90%;
-                                          }
-
-                                          &:hover {
-                                              background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
-                                              color: white;
-                                              transition: background 1s ease-in 0.5s;
-                                              border: none;
-                                          }
-                                      }
                                   }
 
                                   .best-sellers,
-                                  .new-products {
+                                  .new-products,
+                                  .we-recommend {
                                       width: 100%;
                                       display: flex;
                                       flex-direction: row;
@@ -870,16 +932,13 @@
 
                                           .specific-first-tile {
 
-                                              div:first-of-type:not(.sale-container) {
+                                              div:first-of-type:not(.sale-container, .tile-shadow-part) {
                                                   position: relative;
                                               }
 
                                               &:hover {
                                                   div {
                                                       .tile-shadow-part {
-                                                          background: linear-gradient(351.3deg, rgba(203, 141, 98, 0) 33.24%, #CB8D62 104.72%);
-                                                          transform: rotate(180deg);
-                                                          z-index: -1;
                                                           position: absolute;
                                                       }
                                                   }
@@ -901,7 +960,7 @@
                                                   width:42%;
                                               }
 
-                                              @media screen and (max-width:525px) {
+                                              @media screen and (max-width:550px) {
                                                   &:nth-of-type(2) {
                                                       display: none;
                                                   }
@@ -938,6 +997,7 @@
                                                               text-align: left;
                                                               @include adaptive-font(20, 15);
                                                               font-weight: 800;
+                                                              top: 35%;
                                                           }
 
                                                           &:last-of-type {
@@ -1016,6 +1076,271 @@
                                           }
                                       }
                                   }
+
+                                  .special-offer {
+                                      width: 100%;
+                                      background: linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%);
+                                      height: 483px;
+                                      position: relative;
+                                      z-index: -2;
+
+                                      .elipse {
+                                          @include elipses-styling;
+                                          z-index: -1;
+
+                                          @media screen and (max-width:1500px) {
+                                              display: none;
+                                          }
+
+                                          &:first-of-type {
+                                              top: -50%;
+                                              left: -22.68%;
+                                          }
+
+                                          &:nth-of-type(2) {
+                                              top: -50%;
+                                              left: -5%;
+                                          }
+
+                                          &:last-of-type {
+                                              top: -20%;
+                                              left: 47.8%;
+                                          }
+                                      }
+
+                                      .spec-offer-details {
+                                          width: 533px;
+                                          height: 100%;
+                                          margin: 0 13.48%;
+                                          display: flex;
+                                          flex-direction: column;
+                                          justify-content: space-evenly;
+                                          position: absolute;
+                                          top: 0;
+
+                                          @media screen and (max-width:1300px) {
+                                              margin: 0 7%;
+                                          }
+
+                                          @media screen and (max-width:768px) {
+                                              height: 60%;
+                                              width: 100%;
+                                          }
+
+                                          h1 {
+                                              font-family: 'Lighthaus';
+                                              font-style: normal;
+                                              font-weight: 400;
+                                              @include adaptive-font(140, 60);
+                                              color: #fff;
+                                          }
+
+                                          p {
+                                              font-family: 'Mont';
+                                              font-style: normal;
+                                              @include adaptive-font(35, 14)
+                                          }
+
+                                          .default-button {
+                                              width: 61.35%;
+                                              background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                              color: #fff;
+                                              border: none;
+
+                                              @media screen and (max-width:768px) {
+                                                  width: 90%;
+                                              }
+
+                                              &:hover {
+                                                  background: #fff;
+                                                  color: black;
+                                                  transition: none;
+                                                  border: 1px solid #000;
+                                              }
+                                          }
+                                      }
+
+                                      //styling for items in the middle .podium&.product is on the string 638 
+                                      .right-part-bg {
+                                          width: 70vw;
+                                          height: 100%;
+                                          position: absolute;
+                                          right: 0;
+                                          top: 0;
+                                          z-index: -1;
+
+                                          .background-320px {
+                                              display: none;
+
+                                              @media screen and (max-width:768px) {
+                                                  display: block;
+                                                  position: absolute;
+                                                  top: 34%;
+                                                  right: 0;
+                                              }
+                                          }
+
+                                          img:not(.background-320px) {
+                                              position: absolute;
+                                              right: 0;
+
+                                              @media screen and (max-width:1500px) {
+                                                  right: -15%;
+                                              }
+
+                                              @media screen and (max-width:1175px) {
+                                                  right: -80%;
+                                              }
+
+                                              @media screen and (max-width:768px) {
+                                                  display: none;
+                                              }
+                                          }
+                                      }
+
+                                      .text-for-rpbg {
+                                          @include text-for-rpbg;
+                                          z-index: 1;
+                                      }
+                                  }
+
+                                  .feedback {
+                                      width: 100%;
+                                      height: 620px;
+                                      display: flex;
+                                      flex-direction: row;
+                                      justify-content: center;
+                                      align-items: center;
+                                      color: #031412;
+
+                                      h2 {
+                                          @include h2;
+                                      }
+
+                                      .feedback-items-container {
+                                          width: 100%;
+                                          max-width: 1397px;
+                                          display: flex;
+                                          flex-direction: row;
+                                          justify-content: space-evenly;
+                                          margin-bottom: 5%;
+
+                                          .feedback-item {
+                                              width: 31.92%;
+                                              height: 332px;
+                                              box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+                                              display: flex;
+                                              flex-direction: column;
+                                              justify-content: space-evenly;
+                                              padding-left: 2%;
+
+                                              @media screen and (max-width:1478px) {
+                                                  width: 29%;
+                                              }
+
+                                              @media screen and (max-width:1000px) {
+                                                  &:last-of-type {
+                                                      display: none;
+                                                  }
+
+                                                  width:42%;
+                                              }
+
+                                              @media screen and (max-width:550px) {
+                                                  &:nth-of-type(2) {
+                                                      display: none;
+                                                  }
+
+                                                  width:80%;
+                                              }
+
+                                              h3 {
+                                                  font-family: 'Mont';
+                                                  font-weight: 600;
+                                                  @include adaptive-font(25, 18)
+                                              }
+
+                                              p {
+                                                  font-family: 'Mont';
+                                                  font-style: italic;
+                                                  font-weight: 400;
+                                                  font-size: 14px;
+                                              }
+
+                                              img {
+                                                  width: min-content;
+                                              }
+                                          }
+                                      }
+
+                                      .arrow-right,
+                                      .arrow-left {
+                                          @media screen and (max-width:768px) {
+                                              display: none;
+                                          }
+
+                                          &:hover {
+                                              background: linear-gradient(92.18deg, #E4A16F 20.13%, #5E3928 92.93%);
+                                              color: #fff;
+                                              border-color: #fff;
+                                          }
+                                      }
+                                  }
+
+                                  .why-they-choose-us {
+                                      width: 100%;
+                                      background: rgb(247, 247, 246);
+                                      height: 726px;
+                                      color: #031412;
+
+                                      .main-items-content-wrapper {
+                                          h2 {
+                                              @include h2;
+                                          }
+
+                                          .choose-grid-container {
+                                              width: 100%;
+                                              display: grid;
+                                              grid-template-columns: repeat(auto-fit, minmax(135px, 328px));
+                                              grid-template-rows: repeat(auto-fit, minmax(225px, 254px));
+                                              column-gap: 34px;
+                                              row-gap: 31px;
+
+                                              .grid-item {
+                                                  width: 100%;
+                                                  display: flex;
+                                                  flex-direction: column;
+                                                  justify-content: space-evenly;
+
+                                                  img {
+                                                      width: min-content;
+                                                  }
+
+                                                  h3 {
+                                                      font-family: 'Mont';
+                                                      font-weight: 800;
+                                                      @include adaptive-font(20, 16);
+                                                  }
+
+                                                  p {
+                                                      font-family: 'Mont';
+                                                      font-weight: 400;
+                                                      @include adaptive-font(14, 12);
+                                                  }
+
+                                                  a {
+                                                      background: linear-gradient(65.81deg, #5E3928 -24.09%, #E4A16F 104.02%);
+                                                      -webkit-background-clip: text;
+                                                      -webkit-text-fill-color: transparent;
+                                                      background-clip: text;
+                                                      font-family: 'Mont';
+                                                      font-weight: 800;
+                                                      font-size: 14px;
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
                               }
 
                               .arrow-left,
@@ -1044,6 +1369,33 @@
                               .arrow-right {
                                   justify-content: flex-start;
                                   align-items: center;
+                              }
+
+                              .default-button {
+                                  cursor: pointer;
+                                  width: 18.6%;
+                                  height: 50px;
+                                  background: #fff;
+                                  border: 1px solid #000;
+                                  font-family: 'Mont';
+                                  font-weight: 800;
+                                  font-size: 18px;
+
+
+                                  @media screen and (max-width:1290px) {
+                                      width: 35%;
+                                  }
+
+                                  @media screen and (max-width:700px) {
+                                      width: 90%;
+                                  }
+
+                                  &:hover {
+                                      background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                      color: white;
+                                      transition: background 1s ease-in 0.5s;
+                                      border: none;
+                                  }
                               }
                           }
                       }

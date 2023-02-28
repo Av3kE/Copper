@@ -23,7 +23,7 @@
             <span class="elipse"></span>
             <button class="arrow-left"><i class="fas fa-chevron-left"></i></button>
             <div class="welcome-part">
-                <header>
+                <header id="header">
                     <div class="header-left-part">
                         <div>
                             <img src="img/image 2.png" alt="logo-copper">
@@ -49,9 +49,9 @@
                         <h2><span class="bold-text">Дистилятор для<br> етерних масел</span></h2>
                         <div class="flex-container">
                             <p>Ціна</p>
-                            <p><span class="bold-text">4906 грн</span></p>
+                            <p><span class="bold-text">4 906 грн</span></p>
                         </div>
-                        <button type="submit">Купити</button>
+                        <button type="submit" class="default-button">Купити</button>
                         <div class="change-product-radio-buttons-container">
                             <div class="item">
                                 <button class="button"></button>
@@ -341,6 +341,7 @@
                 </div>
                 <div class="arrow-right"><i class="fas fa-chevron-right"></i></div>
             </section>
+            <!-- section discounts but I used the class mentioned before -->
             <section class="new-products">
                 <div class="arrow-left"><i class="fas fa-chevron-left"></i></div>
                 <div class="main-items-content-wrapper">
@@ -463,56 +464,59 @@
             <section class="why-they-choose-us">
                 <div class="main-items-content-wrapper">
                     <h2>Чому нас обирають</h2>
-                    <div class="choose-grid-container">
-                        <div class="grid-item">
+                    <div class="choose-flex-container">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Автентичність</h3>
-                            <p>Мідне перегінне обладнання використовується для отримання етерних масел з давніх-давен
+                            <p>Мідне перегінне обладнання<br> використовується для отримання<br> етерних масел з
+                                давніх-давен
                             </p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Вишуканість</h3>
-                            <p>Наші мідні вироби є дуже практичними. Водночас вони заповнять особливими чарами ваш дім
+                            <p>Наші мідні вироби є дуже практичними. Водночас вони заповнять особливими<br> чарами ваш
+                                дім
                                 чи робоче...</p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Чесна оплата</h3>
-                            <p>Ми прагнемо надати найкращий товар по найкращій ціні з сервісом високого рівня. Втім, все
+                            <p>Ми прагнемо надати найкращий<br> товар по найкращій ціні з сервісом високого рівня.<br>
+                                Втім, все
                                 починається з... </p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Великий вибір</h3>
                             <p>У нас є все! Від мініатюрних настільних парових дистиляторів етерних масел, до
                                 великогабартиного обладнання...</p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Доставка по всьому світу</h3>
                             <p>Ви можете отримати нашу продукцію в найкоротший термін у будь-яке місце земної кулі.</p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Гарантія якості</h3>
-                            <p>Наше обладнання виготовляється власноруч. Ми постійно контролюємо якість виробленої
+                            <p>Наше обладнання виготовляється власноруч. Ми постійно контролюємо<br> якість виробленої
                                 продукції.</p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Зручність у користуванні</h3>
-                            <p>Наші мідні вироби мають особливий дизайн, який розроблявся нами з метою отримання
+                            <p>Наші мідні вироби мають особливий<br> дизайн, який розроблявся нами з метою<br> отримання
                                 максимальної...</p>
                             <a href="#">Читати більше...</a>
                         </div>
-                        <div class="grid-item">
+                        <div class="flex-item">
                             <img src="img/Group 68.png" alt="#">
                             <h3>Піклування про навколишнє середовище</h3>
                             <p>Від 2 до 5% від вартості кожного придбаного товару в нашому магазині ми відправляємо на
@@ -523,6 +527,45 @@
                 </div>
             </section>
         </main>
+        <footer>
+            <div class="footer-item">
+                <img src="img/image 2.png" alt="logo">
+                <p>© 2021 “Copper Pro”</p>
+                <a href="#">Політика конфіденційності</a>
+            </div>
+            <div class="footer-item">
+                <div>
+                    <h2>Навігація</h2>
+                    <h3>Каталог</h3>
+                    <h3>Новини</h3>
+                    <h3>Доставка</h3>
+                    <h3>Про нас</h3>
+                    <h3>Контакти</h3>
+                </div>
+                <div>
+                    <h2>Каталог</h2>
+                    <h3>Для етерних масел</h3>
+                    <h3>Для гідролатів</h3>
+                    <h3>Мідний посуд</h3>
+                    <h3>Аксесуари з міді</h3>
+                    <h3>Індивідуальне замовлення</h3>
+                    <h3>Знижки та пропозиції</h3>
+                </div>
+                <div>
+                    <h2>Контакти</h2>
+                    <address>Бажана 8-Б, Київ,<br>
+                        02132 Україна</address>
+                    <h3>+38 (096) 990 67 56</h3>
+                    <h3>a.alambik@gmail.com</h3>
+                    <div class="icons-container">
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="to-the-top"><a href="#header">ВГОРУ</a></div>
+        </footer>
     </div>
 </body>
 

@@ -164,7 +164,7 @@
                                           margin: 0 auto;
                                       }
 
-                                      header {
+                                      #header {
                                           width: 100%;
                                           display: flex;
                                           flex-direction: row;
@@ -180,6 +180,10 @@
                                           @media all and (max-width:768px) {
                                               width: 86.7%;
                                               height: 143px;
+                                          }
+
+                                          @media screen and (max-width:500px) {
+                                              width: 100%;
                                           }
 
                                           // I've divided header on two separated parts. Left part consists from logo and nav, right - icon buttons
@@ -215,6 +219,14 @@
                                                   @media screen and (max-width:768px) {
                                                       align-self: center;
                                                       width: 84%;
+                                                  }
+
+                                                  @media screen and (max-width:600px) {
+                                                      width: 100%;
+                                                  }
+
+                                                  @media screen and (max-width:510px) {
+                                                      display: none;
                                                   }
 
                                                   a {
@@ -263,6 +275,16 @@
                                                   padding-bottom: 5px;
                                                   cursor: pointer;
 
+                                                  &:last-of-type {
+                                                      @media screen and (max-width:500px) {
+                                                          display: none;
+                                                      }
+                                                  }
+
+                                                  @media screen and (max-width:500px) {
+                                                      width: 45%;
+                                                  }
+
                                                   i {
                                                       color: #0B3F37;
                                                       font-size: 1.6em;
@@ -292,7 +314,6 @@
                                           .about-product {
                                               display: flex;
                                               flex-direction: column;
-                                              // width: 40vw;
 
                                               @media all and (max-width:768px) {
                                                   margin-left: 5vw;
@@ -300,6 +321,12 @@
                                                   position: absolute;
                                                   top: 25%;
                                                   height: 100%;
+                                              }
+
+                                              @media screen and (max-width:600px) {
+                                                  width: 100%;
+                                                  margin-left: 0;
+                                                  top: 0;
                                               }
 
                                               h1 {
@@ -330,10 +357,6 @@
 
                                                   @media screen and (max-width:1400px) {
                                                       width: 70%;
-                                                  }
-
-                                                  @media screen and (max-width:768px) {
-                                                      width: 55%;
                                                   }
 
                                                   p {
@@ -435,6 +458,10 @@
 
                                               @media screen and (max-width:768px) {
                                                   right: -45%;
+                                              }
+
+                                              @media screen and (max-width:500px) {
+                                                  right: -35%;
                                               }
 
                                               .podium {
@@ -628,6 +655,10 @@
                                           bottom: -5%;
                                           right: unset;
                                       }
+
+                                      @media screen and (min-width:1920px) {
+                                          right: -45%;
+                                      }
                                   }
 
                                   //...and text for it
@@ -728,11 +759,14 @@
                                   font-weight: 800;
                               }
 
+                              //main part starts
+
                               main {
                                   width: 100%;
                                   position: relative;
                                   z-index: 2;
 
+                                  //I use this selector few times
                                   .main-items-content-wrapper {
                                       width: 100%;
                                       display: flex;
@@ -745,6 +779,7 @@
                                           max-width: 1397px;
                                           margin-bottom: 5%;
 
+                                          //propery sometimes repeats so I put it into mixin
                                           h2 {
                                               @include h2;
                                           }
@@ -847,6 +882,7 @@
                                                   }
                                               }
 
+                                              //I will use this one below, not for only "first-tiles"
                                               .specific-first-tile:hover {
                                                   .tile-shadow-part {
                                                       background: linear-gradient(351.3deg, rgba(203, 141, 98, 0) 33.24%, #CB8D62 104.72%);
@@ -919,9 +955,11 @@
                                       }
                                   }
 
+                                  //properties to the same main-items
                                   .best-sellers,
                                   .new-products,
-                                  .we-recommend {
+                                  .we-recommend,
+                                  #discounts {
                                       width: 100%;
                                       display: flex;
                                       flex-direction: row;
@@ -1083,7 +1121,10 @@
                                       height: 483px;
                                       position: relative;
                                       z-index: -2;
+                                      overflow: hidden;
+                                      margin-bottom: 50px;
 
+                                      //These are decorative elements, I missed up them later in the next blocks
                                       .elipse {
                                           @include elipses-styling;
                                           z-index: -1;
@@ -1125,6 +1166,10 @@
                                           @media screen and (max-width:768px) {
                                               height: 60%;
                                               width: 100%;
+                                          }
+
+                                          @media screen and (min-width:1920px) {
+                                              width: auto;
                                           }
 
                                           h1 {
@@ -1290,30 +1335,45 @@
                                   .why-they-choose-us {
                                       width: 100%;
                                       background: rgb(247, 247, 246);
-                                      height: 726px;
+                                      min-height: 726px;
                                       color: #031412;
+                                      padding-bottom: 50px;
 
                                       .main-items-content-wrapper {
                                           h2 {
                                               @include h2;
                                           }
 
-                                          .choose-grid-container {
+                                          .choose-flex-container {
                                               width: 100%;
-                                              display: grid;
-                                              grid-template-columns: repeat(auto-fit, minmax(135px, 328px));
-                                              grid-template-rows: repeat(auto-fit, minmax(225px, 254px));
-                                              column-gap: 34px;
-                                              row-gap: 31px;
+                                              max-width: 1341px;
+                                              display: flex;
+                                              flex-direction: row;
+                                              flex-wrap: wrap;
+                                              justify-content: space-evenly;
+                                              row-gap: 34px;
 
-                                              .grid-item {
-                                                  width: 100%;
+                                              .flex-item {
+                                                  width: 327px;
+                                                  height: 225px;
                                                   display: flex;
                                                   flex-direction: column;
-                                                  justify-content: space-evenly;
+                                                  justify-content: space-between;
+
+                                                  @media screen and (max-width:768px) {
+                                                      width: 40%;
+                                                  }
+
+                                                  @media screen and (max-width:350px) {
+                                                      width: 135px;
+                                                  }
 
                                                   img {
                                                       width: min-content;
+
+                                                      @media screen and (max-width:768px) {
+                                                          width: 50px;
+                                                      }
                                                   }
 
                                                   h3 {
@@ -1339,6 +1399,181 @@
                                                   }
                                               }
                                           }
+                                      }
+                                  }
+                              }
+
+                              footer {
+                                  position: relative;
+                                  background: linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%);
+                                  width: 100%;
+                                  min-height: 375px;
+                                  display: flex;
+                                  flex-direction: row;
+                                  align-items: center;
+                                  justify-content: space-around;
+
+                                  @media screen and (max-width:1024px) {
+                                      flex-direction: column;
+                                      align-items: flex-start;
+                                      min-height: 536px;
+                                  }
+
+                                  .footer-item {
+                                      @media screen and (max-width:1024px) {
+                                          margin-left: 5%;
+                                      }
+
+                                      @media screen and (max-width:456px) {
+                                          margin-left: 2%;
+                                      }
+
+                                      &:first-child {
+                                          display: flex;
+                                          flex-direction: column;
+                                          justify-content: space-between;
+                                          width: 229px;
+                                          height: 149px;
+
+                                          @media screen and (max-width:1024px) {
+                                              margin: 10% 5% 5%;
+                                          }
+
+
+                                          p {
+                                              font-family: 'Mont';
+                                              font-weight: 400;
+                                              @include adaptive-font(14, 12);
+                                              color: #ADADAD;
+                                          }
+
+                                          a {
+                                              font-family: 'Mont';
+                                              font-weight: 400;
+                                              @include adaptive-font(14, 12);
+                                              color: #fff;
+                                              text-decoration: underline;
+                                          }
+                                      }
+
+                                      &:nth-of-type(2) {
+                                          display: flex;
+                                          flex-direction: row;
+                                          justify-content: space-between;
+                                          flex-wrap: wrap;
+                                          width: 567px;
+                                          height: 221px;
+                                          gap: 50px;
+
+                                          @media screen and (max-width:1024px) {
+                                              margin-bottom: 5%;
+                                          }
+
+                                          @media screen and (max-width:768px) {
+                                              width: 80%;
+                                              height: auto;
+                                          }
+
+                                          @media screen and (max-width:456px) {
+                                              width: 100%;
+                                          }
+
+                                          div:first-of-type {
+                                              height: 187px;
+                                              display: flex;
+                                              flex-direction: column;
+                                              justify-content: space-between;
+
+                                              @media screen and (max-width:425px) {
+                                                  order: 1;
+                                              }
+                                          }
+
+                                          div:nth-of-type(2) {
+                                              height: 100%;
+                                              display: flex;
+                                              flex-direction: column;
+                                              justify-content: space-between;
+
+                                              @media screen and (max-width:768px) {
+                                                  height: auto;
+                                              }
+
+                                              @media screen and (max-width:425px) {
+                                                  order: 3;
+                                                  height: 221px;
+                                              }
+                                          }
+
+                                          div:last-of-type {
+                                              height: 172px;
+                                              display: flex;
+                                              flex-direction: column;
+                                              justify-content: space-between;
+
+                                              .icons-container {
+                                                  width: 83px;
+                                                  height: auto;
+                                                  display: flex;
+                                                  flex-direction: row;
+                                                  justify-content: space-between;
+                                              }
+
+                                              @media screen and (max-width:425px) {
+                                                  order: 2;
+                                              }
+                                          }
+
+                                          div {
+                                              h2 {
+                                                  cursor: pointer;
+                                                  font-family: 'Mont';
+                                                  font-weight: 800;
+                                                  @include adaptive-font(18, 16);
+                                              }
+
+                                              h3 {
+                                                  cursor: pointer;
+                                                  font-family: 'Mont';
+                                                  font-weight: 400;
+                                                  font-size: 14px;
+
+                                                  &:hover {
+                                                      text-decoration: underline;
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+
+                                  .to-the-top {
+                                      position: absolute;
+                                      bottom: 9%;
+                                      right: 0;
+                                      transform: rotate(90deg);
+                                      width: 127px;
+                                      height: 50px;
+                                      background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                      padding: 17px 27px;
+
+                                      @media screen and (max-width:1024px) {
+                                          bottom: 7%;
+                                      }
+
+                                      @media screen and (max-width:768px) {
+                                          bottom: 5%;
+                                      }
+
+                                      @media screen and (max-width:425px) {
+                                          right: -5%;
+                                      }
+
+                                      a {
+                                          font-family: 'Mont';
+                                          font-weight: 800;
+                                          font-size: 18px;
+                                          color: #fff;
+                                          text-decoration: none;
                                       }
                                   }
                               }
